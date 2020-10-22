@@ -16,24 +16,27 @@ func getAllPokemons(w http.ResponseWriter, r *http.Request) {
 }
 
 func addNewPokemon(w http.ResponseWriter, r *http.Request){
-	var newPokemon database.Pokemon
-
 	reqBody, _ := ioutil.ReadAll(r.Body)
+
+	var newPokemon database.Pokemon
 	json.Unmarshal(reqBody, &newPokemon)
 
-	database.PokemonDb[3] = newPokemon
-	w.WriteHeader(http.StatusOK);
+	database.PokemonDb = append(database.PokemonDb, newPokemon)
+
+	json.NewEncoder(w).Encode(newPokemon)
 }
 
 func handleRequests() {
+
 	port := os.Getenv("PORT")
 
 	if port==""{
 		port = "80"
 	}
+
 	myRouter := mux.NewRouter().StrictSlash(true)
 	myRouter.Use(commonMiddleware)
-	myRouter.HandleFunc("/pokemons", getAllPokemons).Methods("GET")
+	myRouter.HandleFunc("/pokemons/get", getAllPokemons).Methods("GET")
 	myRouter.HandleFunc("/pokemons/add", addNewPokemon).Methods("POST")
 
 	log.Fatal(http.ListenAndServe(":"+port, myRouter))

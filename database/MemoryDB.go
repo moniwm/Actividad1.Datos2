@@ -7,6 +7,6 @@ type Pokemon struct {
 }
 
 var PokemonDb = []Pokemon{
-	'1': Pokemon{ID: "1", Name: "Pikachu", Type: "Electric"},
-	'2': Pokemon{ID: "2", Name: "Charmeleon", Type: "Fire"},
+	Pokemon{ID: "1", Name: "Pikachu", Type: "Electric"},
+	Pokemon{ID: "2", Name: "Charmeleon", Type: "Fire"},
 }
