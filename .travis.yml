@@ -7,3 +7,13 @@ deploy:
     secure: "0wr95BJZqf7DXOJ/W0y6a/bmnVd5UnHFB4tPJVyhBN0h3xgeFFswtrqkNQqdWg2FH8rULe4YKo1rvKAtS/WErLAo29wHdRgAJKzunGg/2tRwXfmRU1ze/oCSDGEqbLB/YO4m+kPud4QcckLz6ehbPEeM/FXnd0F87y86CijURZp65PVS/xBdGH7HOBWCPWTAnCYUTwnqNXdJ02mwF+tp7XOLOPQtCpY23DaQTptTB5n59Igcg/HAu5YFuMImG7JSegnbIAMzArmb/8+IcCPbd459sr8j7ZoJW9gu+ZVVMLv+fsQbm+kOnmJD4713f3e5SnpdSXMU18Oq146HMJczcsUGlPCZl1nCsRkWbdkVskZjr0M8KEhauq8FFYsUqUjrhnEnZy/Va99NjYae75tRUDB7iVt78C5qFth9uC83OhSWSaVSwuQWSu3be3xOrf9a2p5IuGebTtKR8IOgFFNs2iISXOKoibR3Ambdxug/tt07TnQQhHMfBsfrfG2mEkYzajWXgdK5xMou5MbcFQ8/Z+f+pGhBLCte8yg+9E97UFJxaEaIxuwPW/qhHZc2K6vKKgWliuFs1OtZyB+wnasSCSlUcNGSEuGQsgBt4u4efkCVicDW2jNcXHMyDTkULadPhFtJ4OC6n6DkeqCoRr82kkt3fYxlxq9ZJbxz65OwPmY="
   app:
     master: pokemon-api-moniwaterhouse
+
+addons:
+  sonarcloud:
+    organization: "moniwm" # the key of the org you chose at step #3
+    token:
+      secure: "0ItNUQpT7lHaJwUL8/HBNOBwP8UCJbQ9R+cCIdqZWvluaJjsABFEpgQrKWo/OKZDpR8gQKcL2aZBqUKAhukYDMHAPAPfepXIFb36Be3q2gv/GYhQH1Xawfrh7NnwHIA5+nKBh0yZk5cdr0ZNkFDv6mk1J9ZEppOos3nZhF+E8I9687J3Jt9LRKWFoiz+g2qojLsAPrYTqlB0Neu9J3z/wSXUhxRgFKB+ayYc5nvYXDbFsH5l+t4QuaxDHRiXBc7gDT//pjjJNY+pftS34Jd1uR9fOBhG5nuvy9dQ8uI2knL3CyfiXJ3nVQrbHJd6Ufa781w5riq495XP7MoULfDynhsm8feKPfRNPh2bRRG2IH/vXIaYH7upnIrLNL+oYVhSRwM2FD5rgr+xqgjk2LMh+mtr8Xl7p2peclk1Xaip2qG/766mcKCTIsuf4WOTR2rngiQCrjamm1+BXM9eMHpLVXVW+3PBZWGLaezQRAZ/Ynhr/vpV0Y/2S1mYBN5PW2NTVqqCXBoNV4Imyy0UXmphl8Y5sqlqgDP+PWs3yqwwqIT/QCi3o7DgQyMkuO9wpgkfuxNychd25pFGz8cWyo8ldRAxCJtgE/WxWIO0BStprFWr+lzs/O6hSbWblOTbvbYxn5aqKJmt+kmKiMxHj/AqB72wWsaIMkAXL+7i45t7fYE="
+  # encrypted value of your token
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
