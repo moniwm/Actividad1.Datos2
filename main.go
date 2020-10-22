@@ -27,6 +27,7 @@ func addNewPokemon(w http.ResponseWriter, r *http.Request){
 
 func handleRequests() {
 	port := os.Getenv("PORT")
+
 	if port==""{
 		port = "80"
 	}
@@ -34,6 +35,7 @@ func handleRequests() {
 	myRouter.Use(commonMiddleware)
 	myRouter.HandleFunc("/pokemons", getAllPokemons).Methods("GET")
 	myRouter.HandleFunc("/pokemons/add", addNewPokemon).Methods("POST")
+
 	log.Fatal(http.ListenAndServe(":"+port, myRouter))
 }
 
