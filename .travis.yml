@@ -1,3 +1,10 @@
 language: go
 env:
   GO111MODULE=on
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: e9d776e2-2dae-4170-b329-b615f28df83b
+  app:
+    master: pokemon-api-moniwaterhouse
