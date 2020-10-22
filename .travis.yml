@@ -1,4 +1,3 @@
 language: go
-
-script:
-  - env G0111MODULE=ON go build
+env:
+  GO111MODULE=on
